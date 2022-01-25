@@ -34,7 +34,7 @@
     <br>
     <br>
 
-    <button id="google_signout" type="button" class="btn btn-primary">Sign Out</button>
+    <button id="g_id_signout" type="button" class="btn btn-primary">Sign Out</button>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -46,8 +46,8 @@
     <script>
 
         var url = ( window.location.hostname.includes('localhost') )
-                    ? "https://localhost:3000/api/auth/google"
-                    : "https://restserver-edgar.herokuapp.com"
+                    ? 'http://localhost:3000/api/auth/google'
+                    : 'https://restserver-edgar.herokuapp.com'
 
         function handleCredentialResponse(response) {
             
@@ -71,8 +71,8 @@
                 .catch(console.warn);
         }
 
-        const button = document.getElementById('google_signout');
-        button.onclick = () => {
+        const button = document.getElementById('g_id_signout');
+        button.onclick = async() => {
             console.log(google.accounts.id);
             google.accounts.id.disableAutoSelect();
 
