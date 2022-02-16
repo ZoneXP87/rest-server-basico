@@ -90,7 +90,7 @@ const usuariosDelete = async(req, res) => {
 
 module.exports = {
     usuariosGet,
-    usuariosPut,
     usuariosPost,
+    usuariosPut,    
     usuariosDelete
 }

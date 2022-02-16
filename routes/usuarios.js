@@ -15,21 +15,18 @@ const { esRoleValido, emailExiste, existeUsuarioPorID } = require('../helpers/db
 
 const {
     usuariosGet,
-    usuariosPut,
     usuariosPost,
+    usuariosPut,
     usuariosDelete
 } = require('../controllers/usuarios');
 
 const router = Router();
 
-router.get('/', usuariosGet);
+/*
+ * {{url}}/api/usuarios
+ */
 
-router.put('/:id', [
-    check('id', 'No es un ID válido').isMongoId(),
-    check('id').custom(existeUsuarioPorID),
-    check('role').custom(esRoleValido),
-    validarCampos
-], usuariosPut);
+router.get('/', usuariosGet);
 
 router.post('/', [
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
@@ -41,6 +38,13 @@ router.post('/', [
     check('role').custom(esRoleValido),
     validarCampos
 ], usuariosPost);
+
+router.put('/:id', [
+    check('id', 'No es un ID válido').isMongoId(),
+    check('id').custom(existeUsuarioPorID),
+    check('role').custom(esRoleValido),
+    validarCampos
+], usuariosPut);
 
 router.delete('/:id', [
     validarJWT,
