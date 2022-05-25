@@ -11,7 +11,7 @@ const subirArchivo = (files, validExtensions = ['png', 'jpg', 'jpeg', 'gif'], fo
 
         // Validate extensions
         if (!validExtensions.includes(extension)) {
-            reject(`La extensión ${extension} no es permitida.`);
+            reject(`La extensión ${extension} no es permitida. ${validExtensions}`);
         }
 
         const tempName = uuidv4() + '.' + extension;
