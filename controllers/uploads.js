@@ -5,7 +5,6 @@ const cloudinary = require('cloudinary').v2;
 cloudinary.config( process.env.CLOUDINARY_URL );
 
 const { response } = require("express");
-const { model } = require("mongoose");
 
 const { subirArchivo } = require("../helpers");
 const { Usuario, Product } = require('../models');
