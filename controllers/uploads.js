@@ -142,6 +142,7 @@ const mostrarImagen = async(req, res = response) => {
                     msg: `No existe un producto con el id ${id}`
                 });
             }
+            
             break;
     
         default:
@@ -150,12 +151,12 @@ const mostrarImagen = async(req, res = response) => {
 
     // Limpiar imagenes previas
     if (modelo.img) {
-        // Hay que borrar la imagen del servidor
-        const pathImage = path.join(__dirname, '../uploads', coleccion, modelo.img);
-
-        if (fs.existsSync(pathImage)) {
-            return res.sendFile(pathImage);
-        }
+        
+        //if (fs.existsSync(modelo.img)) {
+            return res.json({
+                img: modelo.img
+            });
+        //}
     }
     
     return res.sendFile(path.join(__dirname, '../assets/no-image.jpg'));
